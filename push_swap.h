@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:25:02 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/13 17:41:28 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/15 10:40:40 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	pb(t_stack **a, t_stack **b);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 t_stack	*ft_create_stack(char *argv);
 t_stack	*ft_stackreverse(t_stack *stack);

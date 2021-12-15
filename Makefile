@@ -2,11 +2,12 @@ NAME = push_swap
 FLAGS = -Wall -Werror -Wextra
 LIBFT = libft/libft.a
 HEADER = push_swap.h
-SRC = 	main.c		\
-		stack.c		\
-		swap.c		\
-		push.c		\
-		rotate.c	
+SRC = 	main.c				\
+		stack.c				\
+		swap.c				\
+		push.c				\
+		rotate.c			\
+		reverse_rotate.c	
 ARG = "2 1 3"
 
 all: $(NAME)
