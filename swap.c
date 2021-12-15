@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 17:16:27 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/15 10:14:45 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:24:09 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	sa(t_stack **a)
 	t_stack	*first;
 	t_stack	*second;
 
+	if (!*a || !(*a)->next)
+		return ;
 	first = *a;
-	if (!first)
-		return ;
 	second = first->next;
-	if (!second)
-		return ;
 	first->next = second->next;
 	second->next = first;
 	*a = second;
@@ -33,12 +31,10 @@ void	sb(t_stack **b)
 	t_stack	*first;
 	t_stack	*second;
 
+	if (!*b || !(*b)->next)
+		return ;
 	first = *b;
-	if (!first)
-		return ;
 	second = first->next;
-	if (!second)
-		return ;
 	first->next = second->next;
 	second->next = first;
 	*b = second;
