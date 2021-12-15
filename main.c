@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:29:12 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/15 17:02:52 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/15 17:07:27 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char *argv[])
 	sorted = ft_stacksort(a);
 	index = calloc(sizeof(*index), ft_stackmax(sorted));
 	ft_index(a, index);
+	free(index);
 	exit(EXIT_SUCCESS);
 }
 
