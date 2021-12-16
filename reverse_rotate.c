@@ -6,13 +6,13 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:35:41 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/15 15:22:51 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/16 11:01:09 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 	t_stack	*prev;
@@ -29,9 +29,10 @@ void	rra(t_stack **a)
 	prev->next = 0;
 	tmp->next = *a;
 	*a = tmp;
+	(void)b;
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 	t_stack	*prev;
@@ -48,10 +49,11 @@ void	rrb(t_stack **b)
 	prev->next = 0;
 	tmp->next = *b;
 	*b = tmp;
+	(void)a;
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
-	rra(a);
-	rrb(b);
+	rra(a, b);
+	rrb(a, b);
 }

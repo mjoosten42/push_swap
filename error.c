@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 16:29:12 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 14:23:21 by mjoosten         ###   ########.fr       */
+/*   Created: 2021/12/16 14:19:37 by mjoosten          #+#    #+#             */
+/*   Updated: 2021/12/16 14:22:58 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <time.h>
-
-int	main(int argc, char *argv[])
+int	ft_error(void)
 {
-	t_instr	*instr;
-	t_stack	*a;
-	t_stack	*b;
-	int		*index;
-
-	if (argc != 2)
-		ft_error();
-	a = ft_create_stack(argv[1]);
-	b = 0;
-	instr = ft_init();
-	index = ft_index(a);
-	exit(EXIT_SUCCESS);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
 
-int	printstack(t_stack *stack)
+int	ft_checknumber(t_stack *stack, char *str)
 {
-	printf("Stack: ");
+	int	number;
+
+	number = ft_atoi(str);
 	while (stack)
 	{
-		printf("%d ", stack->number);
+		if (stack->number == number)
+			ft_error();
 		stack = stack->next;
 	}
-	printf("\n");
+	if (!ft_isdigit(*str) && *str != '-')
+		ft_error();
+	str++;
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			ft_error();
+		str++;
+	}
 	return (0);
 }

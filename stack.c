@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 17:14:14 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/15 17:07:20 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:19:23 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_stack	*ft_create_stack(char *str)
 		if (!new)
 			ft_error();
 		new->number = ft_atoi(strs[i]);
+		ft_checknumber(stack, strs[i]);
 		new->next = stack;
 		stack = new;
 		i++;
@@ -54,18 +55,13 @@ t_stack	*ft_stackreverse(t_stack *stack)
 	return (prev);
 }
 
-int	ft_stackmax(t_stack *stack)
+int	ft_stacklast(t_stack *stack)
 {
-	int	max;
-
-	max = stack->number;
-	while (stack)
-	{
-		if (stack->number > max)
-			max = stack->number;
+	if (!stack)
+		return (0);
+	while (stack->next)
 		stack = stack->next;
-	}
-	return (max + 1);
+	return (stack->number);
 }
 
 t_stack	*ft_stacksort(t_stack *stack)
