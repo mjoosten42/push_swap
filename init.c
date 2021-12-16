@@ -6,13 +6,13 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 12:41:05 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 13:40:02 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/16 15:30:36 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_instr	*ft_init(void)
+t_instr	*ft_init(t_stack *a)
 {
 	t_instr	*instr;
 
@@ -22,6 +22,7 @@ t_instr	*ft_init(void)
 	instr->fct = ft_initfct();
 	instr->rev = ft_initrev();
 	instr->strs = ft_initstrs();
+	instr->index = ft_index(a);
 	return (instr);
 }
 
@@ -101,10 +102,18 @@ int	*ft_index(t_stack *a)
 {
 	t_stack	*sorted;
 	int		*index;
+	int		most;
+	int		least;
 	int		i;
 
 	sorted = ft_stacksort(a);
-	index = calloc(sizeof(*index), ft_stacklast(sorted));
+	most = ft_stacklast(sorted);
+	if (most < 0)
+		most = 0;
+	least = ft_stackfirst(sorted);
+	if (least > 0)
+		least = 0;
+	index = calloc(sizeof(*index), most - least);
 	i = 0;
 	while (sorted)
 	{
@@ -113,5 +122,5 @@ int	*ft_index(t_stack *a)
 		i++;
 	}
 	free(sorted);
-	return (index);
+	return (index - least);
 }

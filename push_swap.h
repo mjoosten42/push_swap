@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:25:02 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 14:16:35 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/16 15:24:34 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 typedef struct s_instr
 {
 	char	**strs;
+	int		*index;
 	void	(**fct)(t_stack **a, t_stack **b);
 	void	(**rev)(t_stack **a, t_stack **b);
 }			t_instr;
@@ -44,7 +45,7 @@ void	rra(t_stack **a, t_stack **b);
 void	rrb(t_stack **a, t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
-t_instr	*ft_init(void);
+t_instr	*ft_init(t_stack *a);
 void	*ft_initfct(void);
 void	*ft_initrev(void);
 char	**ft_initstrs(void);
@@ -52,11 +53,14 @@ int		*ft_index(t_stack *a);
 
 t_stack	*ft_create_stack(char *argv);
 t_stack	*ft_stackreverse(t_stack *stack);
+int		ft_stackfirst(t_stack *stack);
 int		ft_stacklast(t_stack *stack);
 t_stack	*ft_stacksort(t_stack *stack);
 void	ft_stackinsert(t_stack **stack, t_stack *new);
 
 int		ft_checknumber(t_stack *stack, char *str);
 int		ft_error(void);
+
+void	ft_sort(t_stack **a, t_stack **b);
 
 #endif

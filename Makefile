@@ -9,14 +9,14 @@ SRC = 	main.c				\
 		rotate.c			\
 		reverse_rotate.c	\
 		init.c
-OBJ = $(SRC:.c=.o)
-ARG = "2 1 3 6 5 8"
+OBJ =$(SRC:.c=.o)
+ARG = "2 1 3"
 
 all: $(NAME)
 	./push_swap $(ARG)
 
 $(NAME): $(LIBFT) push_swap.h $(OBJ)
-	gcc $(FLAGS) -o $@ $(OBJ) $(LIBFT)
+	gcc $(FLAGS) -o $@ $(LIBFT) $(OBJ)
 
 $(LIBFT):
 	make -C libft
@@ -33,4 +33,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean, fclean, re
+.PHONY: clean fclean re

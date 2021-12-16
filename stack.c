@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 17:14:14 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 14:19:23 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/16 15:24:40 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ t_stack	*ft_stackreverse(t_stack *stack)
 		stack = next;
 	}
 	return (prev);
+}
+
+int	ft_stackfirst(t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	return (stack->number);
 }
 
 int	ft_stacklast(t_stack *stack)
