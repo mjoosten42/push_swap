@@ -6,15 +6,15 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 12:41:05 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 15:30:36 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/18 12:36:30 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_instr	*ft_init(t_stack *a)
+t_actions	*ft_init(t_stack *a)
 {
-	t_instr	*instr;
+	t_actions	*instr;
 
 	instr = malloc(sizeof(*instr));
 	if (!instr)
@@ -107,20 +107,15 @@ int	*ft_index(t_stack *a)
 	int		i;
 
 	sorted = ft_stacksort(a);
-	most = ft_stacklast(sorted);
-	if (most < 0)
-		most = 0;
-	least = ft_stackfirst(sorted);
-	if (least > 0)
-		least = 0;
-	index = calloc(sizeof(*index), most - least);
+	most = ft_max(ft_stacklast(sorted), 0);
+	least = ft_min(ft_stackfirst(sorted), 0);
+	index = calloc(sizeof(*index), (most - least) + 1);
 	i = 0;
 	while (sorted)
 	{
-		index[sorted->number] = i;
+		index[sorted->number - least] = i;
 		sorted = sorted->next;
 		i++;
 	}
-	free(sorted);
-	return (index - least);
+	return (index - ft_min(least, 0));
 }

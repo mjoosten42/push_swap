@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 10:16:15 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/18 12:43:07 by mjoosten         ###   ########.fr       */
+/*   Created: 2021/12/18 12:17:06 by mjoosten          #+#    #+#             */
+/*   Updated: 2021/12/18 12:17:27 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+int	ft_stackfirst(t_stack *stack)
 {
-	t_stack	*tmp;
-
-	if (!*b)
-		return ;
-	tmp = *b;
-	*b = tmp->next;
-	tmp->next = *a;
-	*a = tmp;
-	write(1, "pa\n", 3);
+	if (!stack)
+		return (0);
+	return (stack->number);
 }
 
-void	pb(t_stack **a, t_stack **b)
+int	ft_stacklast(t_stack *stack)
 {
-	t_stack	*tmp;
+	if (!stack)
+		return (0);
+	while (stack->next)
+		stack = stack->next;
+	return (stack->number);
+}
 
-	if (!*a)
-		return ;
-	tmp = *a;
-	*a = tmp->next;
-	tmp->next = *b;
-	*b = tmp;
-	write(1, "pb\n", 3);
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }

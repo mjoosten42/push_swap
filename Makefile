@@ -8,12 +8,14 @@ SRC = 	main.c				\
 		push.c				\
 		rotate.c			\
 		reverse_rotate.c	\
-		init.c
+		init.c				\
+		utils.c
 OBJ =$(SRC:.c=.o)
-ARG = "2 1 3"
+ARG = 2 1 3 0
 
 all: $(NAME)
-	./push_swap $(ARG)
+	@./$(NAME) $(ARG)
+#	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
 
 $(NAME): $(LIBFT) push_swap.h $(OBJ)
 	gcc $(FLAGS) -o $@ $(LIBFT) $(OBJ)

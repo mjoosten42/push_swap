@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:35:41 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 11:01:09 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/18 12:44:15 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	rra(t_stack **a, t_stack **b)
 	prev->next = 0;
 	tmp->next = *a;
 	*a = tmp;
+	write(1, "rra\n", 4);
 	(void)b;
 }
 
@@ -49,6 +50,7 @@ void	rrb(t_stack **a, t_stack **b)
 	prev->next = 0;
 	tmp->next = *b;
 	*b = tmp;
+	write(1, "rrb\n", 4);
 	(void)a;
 }
 
@@ -56,4 +58,5 @@ void	rrr(t_stack **a, t_stack **b)
 {
 	rra(a, b);
 	rrb(a, b);
+	write(1, "rrr\n", 4);
 }

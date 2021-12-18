@@ -6,36 +6,31 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 17:14:14 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/16 15:24:40 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/18 13:01:21 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_create_stack(char *str)
+t_stack	*ft_create_stack(char **argv)
 {
 	t_stack	*stack;
 	t_stack	*new;
-	char	**strs;
 	int		i;
 
-	i = 0;
+	i = 1;
 	stack = 0;
-	strs = ft_split(str, ' ');
-	if (!strs)
-		ft_error();
-	while (strs[i])
+	while (argv[i])
 	{
 		new = malloc(sizeof(*new));
 		if (!new)
 			ft_error();
-		new->number = ft_atoi(strs[i]);
-		ft_checknumber(stack, strs[i]);
+		new->number = ft_atoi(argv[i]);
+		ft_checknumber(stack, argv[i]);
 		new->next = stack;
 		stack = new;
 		i++;
 	}
-	ft_free_array((void **)strs);
 	return (ft_stackreverse(stack));
 }
 
@@ -53,22 +48,6 @@ t_stack	*ft_stackreverse(t_stack *stack)
 		stack = next;
 	}
 	return (prev);
-}
-
-int	ft_stackfirst(t_stack *stack)
-{
-	if (!stack)
-		return (0);
-	return (stack->number);
-}
-
-int	ft_stacklast(t_stack *stack)
-{
-	if (!stack)
-		return (0);
-	while (stack->next)
-		stack = stack->next;
-	return (stack->number);
 }
 
 t_stack	*ft_stacksort(t_stack *stack)
