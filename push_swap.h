@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:25:02 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 13:03:49 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:30:25 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <limits.h>
 
 # include <stdio.h>
 
@@ -39,12 +40,14 @@ void		rrr(t_stack **a, t_stack **b);
 
 t_stack		*ft_create_stack(char **argv);
 t_stack		*ft_stackreverse(t_stack *stack);
-t_stack		*ft_stacksort(t_stack *stack);
-void		ft_stackinsert(t_stack **stack, t_stack *new);
 int			ft_stacksize(t_stack *stack);
+int			ft_stack_issorted(t_stack *a);
 
 void		ft_sort(t_stack **a, t_stack **b);
 int			ft_remainder_issorted(t_stack *a, int bits, int remainder);
+
+int			ft_long_atoi(const char *str);
+int			ft_isspace(char c);
 
 int			ft_checknumber(t_stack *stack, char *str);
 int			ft_error(void);

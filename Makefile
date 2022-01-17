@@ -9,7 +9,7 @@ SRC = 	main.c				\
 		rotate.c			\
 		reverse_rotate.c
 OBJ = $(SRC:.c=.o)
-ARG = 2 1 3 6 5 8
+ARG = 3 2 1
 all: $(NAME)
 	@./$(NAME) $(ARG) | wc -l
 	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
