@@ -7,15 +7,12 @@ SRC = 	main.c				\
 		swap.c				\
 		push.c				\
 		rotate.c			\
-		reverse_rotate.c	\
-		init.c				\
-		utils.c
-OBJ =$(SRC:.c=.o)
-ARG = 2 1 3 0
-
+		reverse_rotate.c
+OBJ = $(SRC:.c=.o)
+ARG = 2 1 3 6 5 8
 all: $(NAME)
-	@./$(NAME) $(ARG)
-#	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
+	@./$(NAME) $(ARG) | wc -l
+	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
 
 $(NAME): $(LIBFT) push_swap.h $(OBJ)
 	gcc $(FLAGS) -o $@ $(LIBFT) $(OBJ)

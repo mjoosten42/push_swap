@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 17:14:14 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/18 13:01:21 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 10:55:05 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,17 @@ void	ft_stackinsert(t_stack **stack, t_stack *new)
 		prev->next = new;
 	else
 		*stack = new;
+}
+
+int	ft_stacksize(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
