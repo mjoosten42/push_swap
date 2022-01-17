@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 14:19:37 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 13:33:08 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:40:29 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@ int	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+}
+
+int	ft_amount_lower(t_stack *stack, int number)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->number < number)
+			i++;
+		stack = stack->next;
+	}
+	return (i);
 }
 
 int	ft_checknumber(t_stack *stack, char *str)

@@ -2,16 +2,18 @@ NAME = push_swap
 FLAGS = -Wall -Werror -Wextra
 LIBFT = libft/libft.a
 SRC = 	main.c				\
-		error.c				\
+		utils.c				\
 		stack.c				\
+		sort.c				\
 		swap.c				\
 		push.c				\
 		rotate.c			\
 		reverse_rotate.c
 OBJ = $(SRC:.c=.o)
-ARG = 0 -1 -2
+ARG = 2 0 1
+
 all: $(NAME)
-	@./$(NAME) $(ARG) | wc -l
+	@./$(NAME) $(ARG)
 	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
 
 $(NAME): $(LIBFT) push_swap.h $(OBJ)
