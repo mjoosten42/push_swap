@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:25:02 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 14:52:42 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:46:50 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ int			ft_stacksize(t_stack *stack);
 
 void		ft_sort(t_stack **a, t_stack **b);
 void		ft_sortthree(t_stack **a, t_stack **b);
+void		ft_sortfour(t_stack **a, t_stack **b);
 void		ft_sortfive(t_stack **a, t_stack **b);
+void		ft_movenumber(t_stack **a, t_stack **b, int number);
 
 int			ft_remainder_issorted(t_stack *a, int bits, int remainder);
 int			ft_long_atoi(const char *str);

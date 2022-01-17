@@ -10,10 +10,10 @@ SRC = 	main.c				\
 		rotate.c			\
 		reverse_rotate.c
 OBJ = $(SRC:.c=.o)
-ARG = 2 0 1
+ARG = 4 0 3 1 2
 
 all: $(NAME)
-	@./$(NAME) $(ARG)
+	@./$(NAME) $(ARG) | wc -l
 	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
 
 $(NAME): $(LIBFT) push_swap.h $(OBJ)

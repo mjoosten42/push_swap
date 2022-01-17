@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:42:25 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 14:56:15 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:46:45 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,17 @@ void	ft_sort(t_stack **a, t_stack **b)
 			pa(a, b);
 		bits++;
 	}
-	exit(EXIT_SUCCESS);
 }
 
 void	ft_sortthree(t_stack **a, t_stack **b)
 {
 	if ((*a)->number == 0)
 	{
+		if ((*a)->next->number == 1)
+			return ;
 		rra(a, b);
 		sa(a, b);
-		exit(EXIT_SUCCESS);
+		return ;
 	}
 	if ((*a)->number == 1)
 	{
@@ -51,16 +52,53 @@ void	ft_sortthree(t_stack **a, t_stack **b)
 			sa(a, b);
 		else
 			rra(a, b);
-		exit(EXIT_SUCCESS);
+		return ;
 	}
 	ra(a, b);
 	if ((*a)->number == 1)
 		sa(a, b);
-	exit(EXIT_SUCCESS);
+}
+
+void	ft_sortfour(t_stack **a, t_stack **b)
+{
+	ft_movenumber(a, b, 3);
+	ft_sortthree(a, b);
+	pa(a, b);
+	ra(a, b);
 }
 
 void	ft_sortfive(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
+	ft_movenumber(a, b, 3);
+	ft_movenumber(a, b, 4);
+	ft_sortthree(a, b);
+	pa(a, b);
+	pa(a, b);
+	ra(a, b);
+	ra(a, b);
+}
+
+void	ft_movenumber(t_stack **a, t_stack **b, int number)
+{
+	t_stack	*tmp;
+	int		size;
+	int		i;
+
+	size = ft_stacksize(*a);
+	i = 0;
+	tmp = *a;
+	while (tmp)
+	{
+		if (tmp->number == number)
+			break ;
+		i++;
+		tmp = tmp->next;
+	}
+	if (i > size / 2)
+		while ((*a)->number != number)
+			rra(a, b);
+	else
+		while ((*a)->number != number)
+			ra(a, b);
+	pb(a, b);
 }
