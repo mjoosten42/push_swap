@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:29:12 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 13:21:25 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:55:33 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ int	main(int argc, char *argv[])
 		exit(EXIT_SUCCESS);
 	b = 0;
 	ft_sort(&a, &b);
-	//printf("---Final---\n");
-	//printstack(a);
-	//printstack(b);
 	exit(EXIT_SUCCESS);
 }	
 

@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:25:02 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 13:30:25 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:53:15 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ t_stack		*ft_create_stack(char **argv);
 t_stack		*ft_stackreverse(t_stack *stack);
 int			ft_stacksize(t_stack *stack);
 int			ft_stack_issorted(t_stack *a);
+t_stack		*ft_stackclean(t_stack *orig);
+int			ft_amount_lower(t_stack *stack, int number);
+void		ft_freestack(t_stack *stack);
 
 void		ft_sort(t_stack **a, t_stack **b);
 int			ft_remainder_issorted(t_stack *a, int bits, int remainder);
