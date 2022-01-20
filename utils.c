@@ -6,31 +6,11 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 14:19:37 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 14:40:29 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/20 09:54:03 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
-
-int	ft_amount_lower(t_stack *stack, int number)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if (stack->number < number)
-			i++;
-		stack = stack->next;
-	}
-	return (i);
-}
 
 int	ft_checknumber(t_stack *stack, char *str)
 {
@@ -53,6 +33,30 @@ int	ft_checknumber(t_stack *stack, char *str)
 		str++;
 	}
 	return (0);
+}
+
+int	ft_remainder_issorted(t_stack *a, int bits, int remainder)
+{
+	while (remainder--)
+	{
+		if ((a->number >> bits) % 2)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+int	ft_stacksize(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
 
 int	ft_long_atoi(const char *str)

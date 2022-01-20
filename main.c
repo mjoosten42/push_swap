@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:29:12 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/17 16:45:02 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/20 09:52:05 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,6 @@ int	main(int argc, char *argv[])
 	exit(EXIT_SUCCESS);
 }
 
-int	ft_remainder_issorted(t_stack *a, int bits, int remainder)
-{
-	while (remainder--)
-	{
-		if ((a->number >> bits) % 2)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
 int	ft_stack_issorted(t_stack *a)
 {
 	int	number;
@@ -61,4 +50,10 @@ int	ft_stack_issorted(t_stack *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+int	ft_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
