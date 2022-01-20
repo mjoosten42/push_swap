@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:29:12 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/20 09:52:05 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/20 10:48:55 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack		*a;
-	t_stack		*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		ft_error();
 	a = ft_create_stack(argv);
 	b = 0;
-	if (ft_stack_issorted(a))
+	if (ft_stack_issorted(a, b))
 		exit(EXIT_SUCCESS);
 	if (argc == 3)
 		sa(&a, &b);
@@ -36,10 +36,12 @@ int	main(int argc, char *argv[])
 	exit(EXIT_SUCCESS);
 }
 
-int	ft_stack_issorted(t_stack *a)
+int	ft_stack_issorted(t_stack *a, t_stack *b)
 {
 	int	number;
 
+	if (!a || b)
+		return (0);
 	number = a->number;
 	a = a->next;
 	while (a)

@@ -1,4 +1,5 @@
 NAME = push_swap
+BONUS = checker
 FLAGS = -Wall -Werror -Wextra
 LIBFT = libft/libft.a
 SRC = 	main.c				\

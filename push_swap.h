@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:25:02 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/20 09:53:58 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/20 13:46:04 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		rra(t_stack **a, t_stack **b);
 void		rrb(t_stack **a, t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
 
-int			ft_stack_issorted(t_stack *a);
+int			ft_stack_issorted(t_stack *a, t_stack *b);
 int			ft_error(void);
 
 t_stack		*ft_create_stack(char **argv);
