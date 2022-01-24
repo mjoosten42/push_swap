@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:29:12 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/24 14:34:37 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:47:29 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 	t_stack	*b;
 
 	if (argc < 2)
-		ft_error();
+		return (1);
 	a = ft_create_stack(argv);
 	b = 0;
 	if (ft_stack_issorted(a, b))
