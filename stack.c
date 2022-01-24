@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 17:14:14 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/20 09:54:01 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/24 14:35:05 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,6 @@ t_stack	*ft_stackclean(t_stack *orig)
 	return (stack);
 }
 
-int	ft_amount_lower(t_stack *stack, int number)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if (stack->number < number)
-			i++;
-		stack = stack->next;
-	}
-	return (i);
-}
-
 void	ft_freestack(t_stack *stack)
 {
 	t_stack	*next;
@@ -80,4 +66,35 @@ void	ft_freestack(t_stack *stack)
 		free(stack);
 		stack = next;
 	}
+}
+
+int	ft_stack_issorted(t_stack *a, t_stack *b)
+{
+	int	number;
+
+	if (!a || b)
+		return (0);
+	number = a->number;
+	a = a->next;
+	while (a)
+	{
+		if (a->number < number)
+			return (0);
+		number = a->number;
+		a = a->next;
+	}
+	return (1);
+}
+
+int	ft_stacksize(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }

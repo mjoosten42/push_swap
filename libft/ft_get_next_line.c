@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:53:38 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/24 14:05:42 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/24 14:33:25 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*ft_strsjoin(t_list **lst);
 static int	ft_strslen(t_list **lst);
 static void	del(void *content);
 
-char	*get_next_line(int fd)
+char	*ft_get_next_line(int fd)
 {
 	static char	buf[BUFFER_SIZE + 1];
 	char		*str;
