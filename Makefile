@@ -2,19 +2,29 @@ NAME = push_swap
 BONUS = checker
 FLAGS = -Wall -Werror -Wextra
 LIBFT = libft/libft.a
-SRC = 		main.c				\
-			stack.c				\
-			sort.c				\
-			utils.c				\
-			swap.c				\
-			push.c				\
-			rotate.c			\
+
+SRC = 		main.c					\
+			stack.c					\
+			sort.c					\
+			utils.c					\
+			swap.c					\
+			push.c					\
+			rotate.c				\
 			reverse_rotate.c
-BONUSSRC =	checker.c			\
-			stack.c				\
-			utils.c
+
+BONUSSRC =	checker.c				\
+			stack.c					\
+			utils.c					\
+			bonus_swap.c			\
+			bonus_push.c			\
+			bonus_rotate.c			\
+			bonus_reverse_rotate.c
+
 OBJ = $(SRC:.c=.o)
 BONUSOBJ = $(BONUSSRC:.c=.o)
+
+ARG =	\
+4 3 0 1 2
 
 all: $(NAME)
 
@@ -41,6 +51,10 @@ fclean: clean
 
 re: fclean all
 
+test: all
+	@./$(NAME) $(ARG) | wc -l
+	@./$(NAME) $(ARG) | ./checker_Mac $(ARG)
+
 bonus: $(BONUS)
 
-.PHONY: clean fclean re bonus
+.PHONY: clean fclean re test bonus
